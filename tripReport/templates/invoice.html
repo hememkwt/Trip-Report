@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+@page {
+    size: A4;
+    margin-top: 0mm;
+    margin-bottom: 10mm;
+    margin-left: 15mm;
+    margin-right: 15mm;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    color: #000;
+    font-size: 14px;
+}
+/* Header — centered stacked logo + Arabic */
+.header {
+text-align: center;
+margin-bottom: 5px;
+}
+.logo {
+width: 300px;
+height: auto;
+display: block;
+margin: 0 auto -30px auto;
+}
+.arabic-image-container {
+width: 100%;
+text-align: center;
+margin-top: -20px;
+margin-bottom: 10px;
+}
+.arabic-image {
+width: 520px;
+height: 82px;
+display: inline-block;
+}
+/* Title */
+.title {
+text-align: center;
+font-size: 30px;
+font-weight: bold;
+margin: 15px 0;
+text-transform: uppercase;
+color: #000;
+}
+/* INFO TABLE — PERFECT ALIGNMENT */
+.info-table {
+width: 50%;
+margin-top: 10px;
+border-collapse: collapse;
+table-layout: fixed;
+}
+.info-table td {
+padding: 4px 0;
+font-size: 13px;
+vertical-align: top;
+}
+/* Label columns */
+.label-col,
+.label-col2 {
+width: 210px;
+text-align: left;
+white-space: nowrap;
+}
+/* Colon column */
+.colon-col {
+width: 15px;
+text-align: center;
+font-weight: bold;
+}
+/* Value columns */
+.value-col,
+.value-col2 {
+width: 140px;
+text-align: left;
+white-space: nowrap;
+}
+/* Space between left and right blocks */
+.label-col2 {
+padding-left: 30px;
+}
+/* Impact section */
+.impact-section {
+margin-top: 20px;
+padding-top: 10px;
+}
+.impact-title {
+font-size: 30px;
+font-weight: bold;
+margin-bottom: 5px;
+text-align: center;
+}
+.impact-subtitle {
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 10px;
+text-align: center;
+}
+/* Impact table - CENTERED WITH ALIGN ATTRIBUTE */
+.impact-table {
+width: 430px;
+border-collapse: collapse;
+background-color: #3EA446;
+border-radius: 2px;
+table-layout: fixed;
+margin: 10px auto 0 auto;
+}
+.impact-table tr {
+border-bottom: 1px solid #000;
+}
+.impact-table tr:last-child {
+border-bottom: none;
+}
+.impact-table td {
+padding: 12px 8px;
+font-size: 16px;
+vertical-align: middle;
+color: #FFFFFF;
+}
+.icon-cell {
+width: 100px;
+text-align: center;
+padding-left: 15px;
+}
+.label-cell {
+width: 180px;
+padding-left: 10px;
+font-size: 16px;
+text-align: left;
+font-weight: bold;
+}
+.value-cell {
+width: 150px;
+text-align: right;
+font-weight: bold;
+padding-right: 20px;
+}
+.impact-icon {
+width: 60px;
+height: 60px;
+object-fit: contain;
+filter: brightness(0) invert(1);
+}
+/* Footer */
+.footer {
+margin-top: 30px;
+font-size: 12px;
+text-align: center;
+color: #666;
+line-height: 1.6;
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<div class="header">
+    <img src="assets/logo.png" class="logo" alt="Company Logo">
+<div class="arabic-image-container">
+    <img src="assets/arabic-text.png" class="arabic-image" alt="Arabic Text">
+</div>
+</div>
+<div class="title">Trip Report</div>
+<!-- INFO TABLE -->
+<table class="info-table">
+<tr>
+<td class="label-col">PRINT DATE</td>
+<td class="colon-col">:</td>
+<td class="value-col">{{ print_date }}</td>
+<td class="label-col2">PRINT TIME</td>
+<td class="colon-col">:</td>
+<td class="value-col2">{{ print_time }}</td>
+</tr>
+<tr>
+<td class="label-col">TICKET NO.</td>
+<td class="colon-col">:</td>
+<td class="value-col">{{ ticket_no }}</td>
+<td class="label-col2">VEHICLE NO.</td>
+<td class="colon-col">:</td>
+<td class="value-col2">{{ vehicle_no }}</td>
+</tr>
+<tr>
+<td class="label-col">CUSTOMER</td>
+<td class="colon-col">:</td>
+<td class="value-col">{{ customer }}</td>
+<td class="label-col2">MATERIAL</td>
+<td class="colon-col">:</td>
+<td class="value-col2">{{ material }}</td>
+</tr>
+<tr>
+<td class="label-col">GROSS WEIGHT (ton)</td>
+<td class="colon-col">:</td>
+<td class="value-col">{{ gross_weight }}</td>
+<td class="label-col2">TARE WEIGHT (ton)</td>
+<td class="colon-col">:</td>
+<td class="value-col2">{{ tare_weight }}</td>
+</tr>
+<tr>
+<td class="label-col">FLOAT GLASS (ton)</td>
+<td class="colon-col">:</td>
+<td class="value-col">{{ float_glass }}</td>
+<td class="label-col2">NET WEIGHT (ton)</td>
+<td class="colon-col">:</td>
+<td class="value-col2">{{ net_weight }}</td>
+</tr>
+</table>
+<!-- Impact section -->
+<div class="impact-section">
+<div class="impact-title">Impact calculation</div>
+<div class="impact-subtitle">{{ recycled_glass }} tons of Recycled Glass Saves:</div>
+<center>
+<table class="impact-table" align="center">
+<tr>
+<td class="icon-cell"><img src="assets/water.png" class="impact-icon"></td>
+<td class="label-cell">Water</td>
+<td class="value-cell">{{ water_liters }} Liter</td>
+</tr>
+<tr>
+<td class="icon-cell"><img src="assets/co2.png" class="impact-icon"></td>
+<td class="label-cell">CO2 Emissions</td>
+<td class="value-cell">{{ co2_kg }} kg</td>
+</tr>
+<tr>
+<td class="icon-cell"><img src="assets/energy.png" class="impact-icon"></td>
+<td class="label-cell">Energy</td>
+<td class="value-cell">{{ energy_kwh }} kWh</td>
+</tr>
+<tr>
+<td class="icon-cell"><img src="assets/landfill.png" class="impact-icon"></td>
+<td class="label-cell">Landfill</td>
+<td class="value-cell">{{ landfill_m3 }} M³</td>
+</tr>
+</table>
+</center>
+</div>
+<div class="footer">
+Mangaf - Block 4 - St 201 - Parcel 5410 - Mall 18 - Floor 1 M - Shop 3<br>
+Tel: +965660716969 / +96598888955<br>
+Email: Hemam@Hemam.green
+</div>
+</body>
+</html>
