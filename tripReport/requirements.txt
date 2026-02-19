@@ -1,0 +1,7 @@
+pkg-config
+cairo
+cmake
+streamlit
+jinja2
+xhtml2pdf
+Pillow
