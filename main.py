@@ -40,13 +40,13 @@ with col1:
     gross_weight = st.number_input(
         "Gross Weight (ton)",
         min_value=0.0,
-        format="%.0f",
+        format="%.3f",
         value=0.0
     )
     float_glass_input = st.number_input(
         "Float Glass (ton)",
         min_value=0.0,
-        format="%.0f",
+        format="%.3f",
         value=0.0
     )
 with col2:
@@ -65,7 +65,7 @@ with col2:
     tare_weight = st.number_input(
         "Tare Weight (ton)",
         min_value=0.0,
-        format="%.0f",
+        format="%.3f",
         value=0.0
     )
 
@@ -269,3 +269,4 @@ with button_container:
 st.caption(
     f"📅 Current date: {datetime.now().strftime('%d/%m/%Y')} | "
 )
+
